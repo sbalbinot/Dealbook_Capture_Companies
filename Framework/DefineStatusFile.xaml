@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>559,2668</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>559,2552</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateStatusFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -70,7 +70,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DefineStatusFile" sap:VirtualizedContainerService.HintSize="539,2850" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DefineStatusFile" sap:VirtualizedContainerService.HintSize="539,2452" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="StatusFilePathExists" />
     </Sequence.Variables>
@@ -143,7 +143,7 @@
     </Sequence>
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="497,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,440" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="346,440" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -226,7 +226,7 @@
         <OutArgument x:TypeArguments="x:String">[out_StatusFileName]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[in_Config("StatusFilePath").ToString + "Arquivo 1_"+ Now.ToString(in_Config("TimestampFormat").ToString)]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_Config("StatusFilePath").ToString + in_Config("logF_BusinessProcessName").ToString + "_Arquivo 1_"+ Now.ToString(in_Config("TimestampFormat").ToString)]</InArgument>
       </Assign.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -239,7 +239,7 @@
         <OutArgument x:TypeArguments="x:String">[out_StatusFileName2]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[in_Config("StatusFilePath").ToString + "Arquivo 2_"+ Now.ToString(in_Config("TimestampFormat").ToString)]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_Config("StatusFilePath").ToString + in_Config("logF_BusinessProcessName").ToString + "_Arquivo 2_"+ Now.ToString(in_Config("TimestampFormat").ToString)]</InArgument>
       </Assign.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -252,7 +252,7 @@
         <OutArgument x:TypeArguments="x:String">[out_StatusFileName3]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[in_Config("StatusFilePath").ToString + "Arquivo 3_"+ Now.ToString(in_Config("TimestampFormat").ToString)]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_Config("StatusFilePath").ToString + in_Config("logF_BusinessProcessName").ToString + "_Arquivo 3_"+ Now.ToString(in_Config("TimestampFormat").ToString)]</InArgument>
       </Assign.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -260,7 +260,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Switch x:TypeArguments="x:String" DisplayName="Check the status file type" Expression="[in_Config(&quot;StatusFileFormat&quot;).ToString]" sap:VirtualizedContainerService.HintSize="497,558" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+    <Switch x:TypeArguments="x:String" DisplayName="Check the status file type" Expression="[in_Config(&quot;StatusFileFormat&quot;).ToString]" sap:VirtualizedContainerService.HintSize="497,160" sap2010:WorkflowViewState.IdRef="Switch`1_3">
       <Switch.Default>
         <Sequence sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
@@ -294,7 +294,7 @@
           </Assign>
         </Sequence>
       </Switch.Default>
-      <Sequence x:Key="CSV" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <Sequence x:Key="CSV" sap:VirtualizedContainerService.HintSize="304,343" sap2010:WorkflowViewState.IdRef="Sequence_7">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -325,7 +325,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence x:Key="TXT" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_8">
+      <Sequence x:Key="TXT" sap:VirtualizedContainerService.HintSize="304,346" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -357,6 +357,6 @@
         </Assign>
       </Sequence>
     </Switch>
-    <ui:LogMessage DisplayName="Log Message - status file name" sap:VirtualizedContainerService.HintSize="497,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Status File path: &quot; + out_StatusFileName + System.Environment.NewLine +&#xD;&#xA;&quot;Status File path 2: &quot; + out_StatusFileName2 + System.Environment.NewLine +&#xD;&#xA;&quot;Status File path 3: &quot; + out_StatusFileName3]" />
+    <ui:LogMessage DisplayName="Log Message - status file name" sap:VirtualizedContainerService.HintSize="497,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Status File path: &quot; + out_StatusFileName + System.Environment.NewLine +&#xA;&quot;Status File path 2: &quot; + out_StatusFileName2 + System.Environment.NewLine +&#xA;&quot;Status File path 3: &quot; + out_StatusFileName3]" />
   </Sequence>
 </Activity>
